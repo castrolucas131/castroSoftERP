@@ -1,0 +1,48 @@
+// sc-ion-label-md-h sc-ion-label-md-s md hydrated
+ion-header {
+  ion-toolbar {
+    ion-icon {
+      margin-right: 12px;
+      font-size: 27px;
+    }
+  }
+}
+
+ion-content {
+  .alert-product-delete {
+    position: fixed;
+    width: 100%;
+    margin: 50px auto 0px auto;
+
+    ion-card {
+      ion-card-content {
+        ion-button {
+          width: 48%;
+          height: 40px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .swiper-slide {
+    display: block;
+  }
+}
+
+ion-footer {
+  background: white !important;
+
+  ion-button {
+    width: 48%;
+    height: 40px;
+    font-size: 18px;
+
+    &.float-left {
+      float: left;
+    }
+    &.float-right {
+      float: right;
+    }
+  }
+}

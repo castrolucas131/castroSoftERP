@@ -1,0 +1,106 @@
+<ion-header *ngIf="viewSettings === false">
+  <ion-toolbar color="primary">
+    <ion-icon slot="start" name="person-circle" class="margin-left" (click)="settings()"></ion-icon>
+    <ion-title>Lucas</ion-title>
+    <span> Administrador </span>
+    <ion-icon slot="end" name="help-circle" class="margin-right" (click)="help()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="secondary">
+  <!-- Inicio View Settings -->
+  <div class="settings" *ngIf="viewSettings">
+    <div #background class="background">
+      <div class="settings-information ion-text-center">
+        <ion-icon slot="start" name="close-circle"  (click)="settings()"></ion-icon>
+        <img class="logo" src="../../../assets/img/logo_vertical.png" alt="Logo Castro SoftERP">
+
+        <span> Usuário: <strong>Lucas de Castro Gama</strong> </span>
+        <span> Empresa: <strong>Supermercado Castro</strong> </span>
+        <span> Credencial: <strong>Administrador</strong> </span>
+      </div>
+
+      <ion-list lines="full">
+        <ion-item *ngFor="let item of items" detail>
+          <ion-icon slot="start" [name]="item.icon"></ion-icon>
+          <ion-label>{{ item.text }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-button class="logout ion-margin-horizontal" color="light" expand="block" fill="outline" (click)="logout()">
+        <strong> SAIR DA CONTA </strong>
+      </ion-button>
+    </div>
+  </div>
+  <!-- Fim View Settings -->
+
+  <!-- Inicio View Home -->
+  <div class="home" *ngIf="viewSettings === false">
+    <!--PDV-->
+    <ion-card color="">
+      <ion-item #swipeDown  class="ion-margin-vertical item-header" lines="none" color="primary">
+        <ion-icon slot="start" name="cart" class="value"></ion-icon>
+        <ion-label class="value">Ponto de Venda</ion-label>
+      </ion-item>
+
+      <ion-card-content class="ion-no-padding" color="secondary">
+        <div class="ion-padding ion-margin-vertical cash">
+          <span class="medium-font">Valor total vendido hoje</span>
+          <span class="value"> <strong> R$ 0 </strong></span>
+        </div>
+
+        <div class="ion-padding-vertical" color="primary">
+          <ion-item color="light" lines="none" detail color="primary">
+            <ion-icon slot="start" name="list"></ion-icon>
+            <ion-label class="ion-text-wrap" routerLink="/pdv">Você realizou <strong>0</strong> vendas hoje.</ion-label>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!--Produto-->
+    <ion-card color="">
+      <ion-item #swipeDown  class="ion-margin-vertical item-header" lines="none" color="primary">
+        <ion-icon slot="start" name="pricetags" class="value"></ion-icon>
+        <ion-label class="value">Produto</ion-label>
+      </ion-item>
+
+      <ion-card-content class="ion-no-padding" color="secondary">
+        <div class="ion-padding ion-margin-vertical cash">
+          <span class="medium-font">Cadastre Agora seu novo produto.</span>
+          <span class="value"> <strong> 0 Produtos Cadastrado </strong></span>
+        </div>
+
+        <div class="ion-padding-vertical" color="primary">
+          <ion-item color="light" lines="none" detail color="primary">
+            <ion-icon slot="start" name="list"></ion-icon>
+            <ion-label class="ion-text-wrap" routerLink="/product-list">Vamos cadastrar seu novo <strong>Produto.</strong>.</ion-label>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!--Estoque-->
+    <ion-card color="" class="ultimo-card">
+      <ion-item #swipeDown  class="ion-margin-vertical item-header" lines="none" color="primary">
+        <ion-icon slot="start" name="grid" class="value"></ion-icon>
+        <ion-label class="value">Estoque</ion-label>
+      </ion-item>
+
+      <ion-card-content class="ion-no-padding" color="secondary">
+        <div class="ion-padding ion-margin-vertical cash">
+          <span class="medium-font">Mantenha sempre seu estoque ajustado.</span>
+          <span class="value"> <strong> Você está sem estoque </strong></span>
+        </div>
+
+        <div class="ion-padding-vertical" color="primary">
+          <ion-item color="light" lines="none" detail color="primary">
+            <ion-icon slot="start" name="list"></ion-icon>
+            <ion-label class="ion-text-wrap" routerLink="/estoque">Ajuste de Estoque.</ion-label>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- Fim View Home -->
+</ion-content>

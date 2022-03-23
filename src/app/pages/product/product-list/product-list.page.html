@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <ion-segment>
+    <ion-segment-button value="todos">
+      <ion-label> <strong>Todos</strong> </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="aberto">
+      <ion-label> <strong>Ativos</strong> </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="fechado">
+      <ion-label> <strong>Inativos</strong> </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-searchbar #search debounce="500" animated="true" (ionChange)="_ionChange($event)" placeholder="Buscar..." clearInput=""></ion-searchbar>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header> Lista de Produtos </ion-list-header>
+
+      <ion-item *ngFor="let options of options" routerLink="/edit-product">
+        <ion-avatar slot="start">
+          <img [src]="options.link"  [alt]="options.name"/>
+        </ion-avatar>
+
+
+        <ion-label>
+          <h2 class="ion-text-uppercase" routerLink="/product-edit"> <strong>{{ options.name }}</strong></h2>
+          <p class="estoque"> <strong>Estoque</strong> {{ options.estoque }} </p>
+          <p class="preco"> <strong>Preço</strong> {{ options.preco }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/product-new" color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

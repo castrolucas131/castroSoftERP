@@ -1,0 +1,39 @@
+ion-content{
+  ion-segment {
+    ion-segment-button {
+      ion-label {
+        strong {
+          color: white;
+        }
+      }
+    }
+  }
+
+  ion-searchbar {
+    --border-radius: 10px;
+  }
+
+  ion-card {
+    border-radius: 20px;
+  }
+
+  ion-list {
+    ion-item{
+      ion-label {
+        h2{
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 15px;
+          &.preco {
+            float: right;
+          }
+          &.estoque {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+ion-header {
+  ion-toolbar {
+    ion-title {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    ion-grid {
+      ion-row {
+        ion-col {
+          ion-searchbar {
+            --border-radius: 10px;
+          }
+
+          ion-icon{
+            font-size: 40px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+ion-content {
+  .alert {
+    position: absolute;
+    width: 100%;
+    margin: 50px auto 0px auto;
+
+    ion-card {
+      ion-card-content {
+        ion-button {
+          width: 48%;
+          height: 40px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .main {
+    .sinal {
+      font-size: 40px;
+    }
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    ion-button {
+      width: 48%;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+}

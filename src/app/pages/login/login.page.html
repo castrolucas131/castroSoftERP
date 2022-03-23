@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true">
+  <!-- Inicio Tela de boas-vindas -->
+  <ion-slides pager="true" *ngIf="showWelcome">
+    <ion-slide>
+      <div class="slide">
+        <ion-icon name="phone-portrait-outline" class="icon-apresentation"></ion-icon>
+        <h2>Bem Vindo(a)</h2>
+        <p>
+          O Aplicativo <b>Castro SoftERP</b> foi desenvolvido para ajudar você pequeno empreendedor e comerciante a sair do papel e ter maior controle de seu empreendimento na palma da mão.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide">
+        <ion-icon name="receipt-outline" class="icon-apresentation"></ion-icon>
+        <h2>Pronto para começar?</h2>
+        <br/>
+        <ion-button (click)="goLogin()" fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <!-- Fim Tela de boas-vindas -->
+
+
+  <!-- Inicio Tela de Login -->
+  <div class="login" *ngIf="showWelcome === false">
+    <form [formGroup]="formLogin" *ngIf="formLogin">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">
+            <img src="../../../assets/img/logo_vertical.png" alt="Logo Castro SoftERP" (click)="updateAPK()"/>
+          </ion-card-title>
+          <ion-card-subtitle class="ion-text-center">
+            <span> <strong>{{message}}</strong> </span>
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <fieldset>
+            <legend>Usuário</legend>
+            <ion-input type="text" clearInput="" formControlName="login" placeholder="Informe seu usuário"></ion-input>
+          </fieldset>
+          <br/>
+          <fieldset>
+            <legend>Senha</legend>
+            <ion-input type="password" clearInput="" formControlName="password" placeholder="Informe sua senha"></ion-input>
+          </fieldset>
+          <br/><br/>
+
+          <ion-button [disabled]="formLogin.invalid" expand="block" (click)="loginAuthentication()">
+            <strong>Entrar</strong>
+            <ion-icon slot="end" name="enter"></ion-icon>
+          </ion-button>
+          <br/>
+        </ion-card-content>
+      </ion-card>
+
+      <div class="back-button">
+        <ion-button class="ion-text-center" (click)="goLogin()" fill="clear"><strong>Voltar</strong></ion-button>
+      </div>
+    </form>
+  </div>
+  <!-- Fim Tela de Login -->
+</ion-content>

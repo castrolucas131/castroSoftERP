@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-toolbar color="primary" class="ion-padding-vertical">
+    <ion-title><strong>Supermercado Castro</strong></ion-title>
+    <ion-title>End.: <strong>Rua de Breves, 123 - Bairro</strong> </ion-title>
+    <ion-title>Fone: <strong>(91) 98123 - 1234</strong> </ion-title>
+    <ion-title>Vendedor: <strong>Lucas Castro</strong> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="principal">
+    <p class="title-header">PRODUTOS</p>
+
+    <!-- Inicio main -->
+    <ion-grid>
+      <!-- Head -->
+      <ion-row>
+        <ion-col size="2">
+        <strong>COD</strong>
+        </ion-col>
+        <ion-col size="4">
+          <strong>Produto</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Quant.</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Pr.</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Total</strong>
+        </ion-col>
+      </ion-row>
+
+      <!-- Body -->
+      <ion-grid>
+        <ion-row class="">
+          <ion-col size="2">
+            7
+          </ion-col>
+          <ion-col size="4">
+            CAFE PILAO 250G
+          </ion-col>
+          <ion-col size="2">
+            1
+          </ion-col>
+          <ion-col size="2">
+            3.50
+          </ion-col>
+          <ion-col size="2">
+            3.50
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Footer -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>TOTAL</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong> R$ 3.50</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Fim main -->
+  </div>
+  <br/><br/>
+
+  <div class="footer">
+    <ion-grid>
+      <!-- Valor Pago -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>Valor Recebido:</strong>
+        </ion-col>
+        <ion-col size="2">
+          R$ 20,00
+        </ion-col>
+      </ion-row>
+
+      <!-- Desconto -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>Desc.:</strong>
+        </ion-col>
+        <ion-col size="2">
+          R$ 0,50
+        </ion-col>
+      </ion-row>
+
+      <!-- Sub. Total -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>Sub. Total:</strong>
+        </ion-col>
+        <ion-col size="2">
+          R$ 3.50
+        </ion-col>
+      </ion-row>
+
+      <!-- Total -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>TOTAL:</strong>
+        </ion-col>
+        <ion-col size="2">
+          R$ 3.00
+        </ion-col>
+      </ion-row>
+
+      <!-- Troco -->
+      <ion-row>
+        <ion-col size="10">
+        <strong>Troco</strong>
+        </ion-col>
+        <ion-col size="2">
+          R$ 17.00
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br/><br/>
+  <p class="title-footer">Obrigado pela preferência!</p>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button routerLink="/pdv" color="danger">
+      retornar
+    </ion-button>
+
+    <ion-button routerLink="" color="primary">
+      Compartilhar
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

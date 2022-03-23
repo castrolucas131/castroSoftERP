@@ -1,0 +1,45 @@
+ion-header {
+  ion-toolbar {
+    ion-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+ion-content {
+  .principal {
+    .title-footer {
+      // border: 4px dashed black;
+      text-align: center;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 23px;
+      color: red;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    border-top: 4px dashed black;
+    border-bottom: 4px dashed black;
+  }
+
+  .title-footer {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    ion-button {
+      width: 48%;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+}

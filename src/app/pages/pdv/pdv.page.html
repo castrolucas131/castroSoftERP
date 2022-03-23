@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="aling ion-margin-vertical">PDV</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-searchbar #search debounce="500" animated="true" (ionChange)="_ionChange($event)" placeholder="Buscar..." clearInput=""></ion-searchbar>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon name="barcode-outline" (click)="scanBarCode()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Inicio Alertas -->
+  <div class="alert" *ngIf="viewAlert">
+    <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-title>
+          <strong> {{ textAlert }} </strong>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div *ngIf="viewOptions">
+          <ion-list>
+            <ion-radio-group value="biff">
+              <ion-item>
+                <ion-label>Acréscimo</ion-label>
+                <ion-radio slot="start" value="acrescimo"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Desconto</ion-label>
+                <ion-radio slot="start" value="desconto"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input type="number" [(ngModel)]="valueInsertAler"></ion-input>
+        </ion-item>
+
+        <ion-button color="danger" (click)="cancelAlert()">
+          <strong>Cancelar</strong>
+        </ion-button>
+
+        <ion-button color="primary" (click)="confirmAlert()">
+          <strong>Confirmar</strong>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <!-- Fim Alertas -->
+
+  <!-- Inicio main -->
+  <div *ngIf="viewAlert === false" class="main">
+    <ion-grid>
+      <!-- Head -->
+      <ion-row>
+        <ion-col size="2">
+         <strong>COD</strong>
+        </ion-col>
+        <ion-col size="4">
+          <strong>Produto</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Quant.</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Pr.</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong>Total</strong>
+        </ion-col>
+      </ion-row>
+
+      <!-- Body -->
+      <ion-list>
+        <ion-item-sliding>
+          <ion-item>
+            <ion-grid>
+              <ion-row class="">
+                <ion-col size="2">
+                  7
+                </ion-col>
+                <ion-col size="4">
+                  CAFE PILAO 250G
+                </ion-col>
+                <ion-col size="2" (click)="fractional()">
+                  {{ quant }}
+                </ion-col>
+                <ion-col size="2">
+                  {{ pr }}
+                </ion-col>
+                <ion-col size="2" (click)="altTotal()">
+                  {{ total }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="removeItem()"> <span class="sinal">-</span> </ion-item-option>
+            <ion-item-option (click)="addItem()"> <span class="sinal">+</span> </ion-item-option>
+          </ion-item-options>
+          <ion-item-options side="start">
+            <ion-item-option (click)="deleteItem()">Remover</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <!-- Footer -->
+      <ion-row>
+        <ion-col size="10">
+         <strong>TOTAL</strong>
+        </ion-col>
+        <ion-col size="2">
+          <strong> R$ {{ total }}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- Fim main -->
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button routerLink="/home" color="danger">
+      Cancelar
+    </ion-button>
+
+    <ion-button routerLink="/finish-note" color="primary">
+      Fechamento
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
